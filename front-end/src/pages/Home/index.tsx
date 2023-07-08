@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logoImg from "../../assets/images/InForme.svg";
 import homeImg from "../../assets/images/homeImg.svg";
+import logoIFPB from "../../assets/images/logo-ifpb.png";
 import "./styles.css";
 
 function Home() {
@@ -24,6 +25,8 @@ function Home() {
           <Link to="list" className="feed">
             Leia
           </Link>
+
+          <img src={logoIFPB} alt="Logo IFPB" className="logoIF" />
         </div>
       </div>
     </div>

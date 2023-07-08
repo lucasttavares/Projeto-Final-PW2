@@ -65,6 +65,14 @@
   background: #8c9ba3;
 }
 
+.logoIF{
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
 @media (min-width: 1100px){
   #page-home-content{
     max-width: 1100px;
@@ -102,5 +110,13 @@
   .buttons-container{
     grid-area: buttons;
     justify-content: center;
+  }
+
+  .logoIF{
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
   }
 }
