@@ -1,0 +1,49 @@
+#page-informe-list{
+    width: 100%;
+    height: 100%;
+}
+
+#search-informe {
+    margin-top: 3.2rem;
+}
+
+#search-informe label{
+    color: #FFFFFF;
+}
+
+#search-informe .input-block{
+    position: relative;
+}
+
+#search-informe .input-block label{
+    font-size: 1.4rem;
+    
+}
+
+#search-informe .input-block input{
+
+    width: 100%;
+    height: 5.6rem;
+    margin-top: 0.8rem;
+    border-radius: 0.8rem;
+    background-color: black;
+    border: 1px solid var(#FFFFFF); 
+    outline: 0;
+    padding: 0 1.6rem;
+    font: 1.6rem Archivo;
+}
+
+@media (min-width: 700px) {
+    #page-informe-list {
+      max-width: 100%;
+    }
+  
+    #search-informe {
+      display: grid;
+      grid-template-columns: 1fr;
+      column-gap: 16px;
+      position: absolute;
+      bottom: 10px;
+    }
+  
+  }

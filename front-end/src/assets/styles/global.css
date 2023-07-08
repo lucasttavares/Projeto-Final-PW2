@@ -8,6 +8,8 @@
   box-sizing: border-box;
 }
 
+
+
 html,
 body,
 #root {
@@ -31,7 +33,7 @@ textarea {
 }
 
 .container {
-  width: 90vw;
+  width: 9vw;
   max-width: 400px;
 }
 
