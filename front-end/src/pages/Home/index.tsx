@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logoImg from "../../assets/images/InForme.svg";
 import homeImg from "../../assets/images/homeImg.svg";
 import "./styles.css";
@@ -16,13 +17,13 @@ function Home() {
         <img src={homeImg} alt="Home" className="home-image" />
 
         <div className="buttons-container">
-          <a href="a" className="add">
+          <Link to="form" className="add">
             Escreva
-          </a>
+          </Link>
 
-          <a href="a" className="feed">
+          <Link to="list" className="feed">
             Leia
-          </a>
+          </Link>
         </div>
       </div>
     </div>
