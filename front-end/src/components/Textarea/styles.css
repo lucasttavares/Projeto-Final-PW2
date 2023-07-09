@@ -1,23 +1,23 @@
-.input-block{
+.textarea-block{
     position: relative;
 }
 
-.input-block + .input-block{
-    margin-top: 1.4rem;
-}
-.input-block label{
+
+.textarea-block label{
     font-size: 1.4rem;
     
 }
 
-.input-block input{
+.textarea-block textarea{
     width: 100%;
-    height: 5.6rem;
+    height: 16rem;
+    min-height: 10rem;
     margin-top: 0.8rem;
     border-radius: 0.8rem;
     background-color: white;
     border: 1px solid #9A9E9F; 
     outline: 0;
-    padding: 0 1.6rem;
-    font: 1.6rem Archivo;
+    resize: vertical;
+    padding: 1.2rem 1.6rem;
+    font: 1.6rem Roboto;
 }

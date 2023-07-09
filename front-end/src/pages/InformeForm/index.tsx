@@ -1,27 +1,40 @@
 import React, { FormEvent, useState } from "react";
+import { useNavigate} from 'react-router-dom';
 import PageHeader from "../../components/PageHeader";
-import Input from "../../components/PageHeader/Input";
+import Input from "../../components/Input";
 import iconAttention from "../../assets/images/Atenção.svg";
-import Textarea from "../../components/PageHeader/Textarea";
+import Textarea from "../../components/Textarea";
 import Select from "../../components/Select";
 
 import "./style.css"
-import { create } from "domain";
+import api from "../../services/api";
 
 function InformeForm() {
+
+  const navigate = useNavigate();
+
   const[name, setName] = useState("");
   const[avatar, setAvatar] = useState("");
   const[numero, setNumero] = useState("");
-  const[texto, setTexto] = useState("");
+  const[bio, setBio] = useState("");
 
-  function handleCreatClass(e: FormEvent){
+  const[subject, setSubject] = useState("")
+
+  function handleCreatCard(e: FormEvent){
     e.preventDefault();
 
-    console.log({
+    api.post("cards",{
       name,
       avatar,
       numero,
-      texto
+      bio,
+      subject
+    }).then(() => {
+      alert("Realizado cm sucesso")
+      
+      navigate("/");
+    }).catch(() =>{
+      alert("Erro")
     })
 
   }
@@ -34,14 +47,14 @@ function InformeForm() {
       />
 
       <main>
-        <form onSubmit={handleCreatClass}>
+        <form onSubmit={handleCreatCard}>
         <fieldset>
           <legend>Dados</legend>
 
           <Input name="name" label="Nome completo" value={name} onChange={(e) => {setName(e.target.value)}}/>
           <Input name="avatar" label="Link da sua foto" value={avatar} onChange={(e) => {setAvatar(e.target.value)}}/>
           <Input name="numero" label="Seu número" value={numero} onChange={(e) => {setNumero(e.target.value)}}/>
-          <Textarea name="texto" label="Seu texto" value={texto} onChange={(e) => {setTexto(e.target.value)}}/>
+          <Textarea name="bio" label="Seu texto" value={bio} onChange={(e) => {setBio(e.target.value)}}/>
 
         </fieldset>
 
@@ -49,8 +62,10 @@ function InformeForm() {
           <legend>Sobre você</legend>
 
           <Select 
-            name="cargo" 
+            name="subject" 
             label="Cargo"
+            value={subject}
+            onChange={(e) => { setSubject(e.target.value) }}
             options={[
               {value: "Professor", label: "Professor"},
               {value: "Servidor", label: "Servidor"},
