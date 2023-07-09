@@ -4,7 +4,6 @@
     background-color: #19882C;
     width: 100%;
     padding: 20px;
-    text-align: center;
 }
 
 .page-header .top-bar-container {
@@ -43,10 +42,18 @@
     color: var(--color-title-in-primary);
   }
 
+  .page-header .header-content p {
+    max-width: 30rem;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    color: var(--color-title-in-primary);
+    margin-top: 2.4rem;
+  }
+
   @media (min-width: 700px){
-    .page-header{
+    /* .page-header{
         height: 180px;
-    }
+    } */
 
     .page-header .top-bar-container{
         max-width: 1100px;
