@@ -7,17 +7,21 @@ export default class CardsController {
     const subject = filters.subject as string;
 
     if (!filters.subject) {
-      return response.status(400).json({
-        error: 'Missing filters to search cards'
-      });
+      const cards = await db('cards')
+      .join('users', 'cards.user_id', '=', 'users.id')
+      .select('cards.*', 'users.*');
+
+      return response.json(cards);
     }
 
-    const cards = await db('cards')
+    else{
+      const cards = await db('cards')
       .where('cards.subject', '=', subject)
       .join('users', 'cards.user_id', '=', 'users.id')
       .select(['cards.*', 'users.*']);
-
-    return response.json(cards);
+    
+      return response.json(cards);
+    }
   }
 
   async create(request: Request, response: Response) {
