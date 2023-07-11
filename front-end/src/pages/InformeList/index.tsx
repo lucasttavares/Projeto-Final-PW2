@@ -1,6 +1,7 @@
 import React, { FormEvent, useState, useEffect } from "react";
 import PageHeader from "../../components/PageHeader";
 import Select from "../../components/Select";
+import logoIFPB from "../../assets/images/logo-ifpb.png";   
 
 import "./style.css";
 import api from "../../services/api";
@@ -54,6 +55,7 @@ function InformeList() {
           return <InformeItem key={informe.id} informe={informe} />;
         })}
       </main>
+      <img src={logoIFPB} alt="Logo IFPB" className="logoIF" />
     </div>
   );
 }

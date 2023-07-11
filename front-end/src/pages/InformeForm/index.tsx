@@ -5,6 +5,8 @@ import Input from "../../components/Input";
 import iconAttention from "../../assets/images/Atenção.svg";
 import Textarea from "../../components/Textarea";
 import Select from "../../components/Select";
+import logoIFPB from "../../assets/images/logo-ifpb.png";   
+
 
 import "./style.css"
 import api from "../../services/api";
@@ -39,6 +41,21 @@ function InformeForm() {
 
   }
 
+  function handleAvatarChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files && e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      if (reader.result) {
+        setAvatar(reader.result.toString());
+      }
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
+
   return (
     <div id="page-informe-list" className="container">
       <PageHeader 
@@ -52,7 +69,12 @@ function InformeForm() {
           <legend>Dados</legend>
 
           <Input name="name" label="Nome completo" value={name} onChange={(e) => {setName(e.target.value)}}/>
-          <Input name="avatar" label="Link da sua foto" value={avatar} onChange={(e) => {setAvatar(e.target.value)}}/>
+          <div className="input-file">
+            <label>
+            <Input type="file" name="avatar" label="Adicione uma foto" onChange={handleAvatarChange}/>
+            </label>
+          {avatar && <img src={avatar} className="image-container" alt="Foto" />}
+          </div>
           <Input name="numero" label="Seu número" value={numero} onChange={(e) => {setNumero(e.target.value)}}/>
           <Textarea name="bio" label="Seu texto" value={bio} onChange={(e) => {setBio(e.target.value)}}/>
 
@@ -87,6 +109,8 @@ function InformeForm() {
         </footer>
         </form>
       </main>
+      <img src={logoIFPB} alt="Logo IFPB" className="logoIF" />
+
     </div>
   )
 }
