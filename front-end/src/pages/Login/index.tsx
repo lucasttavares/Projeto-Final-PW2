@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, FormEvent} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import api from '../../services/api';
@@ -9,13 +9,21 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
-  async function login() {
-    const response = await api.get("admin", {
-      params: {
+  async function login(e: FormEvent) {
+    e.preventDefault();
+    api
+      .post("login", {
         username,
         password
-      },
-    });
+      })
+      .then(() => {
+        alert("Realizado com sucesso");
+
+        navigate("/");
+      })
+      .catch(() => {
+        alert("Erro");
+      });
 
   }
   return (
