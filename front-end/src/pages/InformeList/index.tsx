@@ -59,9 +59,11 @@ function InformeList() {
           ]}
         />
       </PageHeader>
+      <main>
       {allInformes.map((informe: Informe) => {
         return <InformeItem key={informe.id} informe={informe} />;
       })}
+      </main>
       <img src={logoIFPB} alt="Logo IFPB" className="logoIF" />
     </div>
   );
