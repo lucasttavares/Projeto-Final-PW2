@@ -1,5 +1,7 @@
 import React, { useState, FormEvent} from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
+
 
 import api from '../../services/api';
 import "./style.css";
@@ -34,7 +36,10 @@ const handleSubmit = async (event: FormEvent) => {
           <label>Senha:</label>
           <input type="password" value={password} onChange={(e) => {setPassword(e.target.value);}} />
         </div>
-        <button type="submit">Entrar</button>
+        <Link to="/list" >
+          <button type="submit">Entrar</button>
+        </Link>
+        
       </form>
     </div>
   );

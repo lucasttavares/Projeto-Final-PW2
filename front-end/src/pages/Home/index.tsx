@@ -22,7 +22,7 @@ function Home() {
             Escreva
           </Link>
 
-          <Link to="list" className="feed">
+          <Link to="login" className="feed">
             Leia
           </Link>
 
