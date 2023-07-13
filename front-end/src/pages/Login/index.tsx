@@ -9,26 +9,23 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
-  async function login(e: FormEvent) {
-    e.preventDefault();
-    api
-      .post("login", {
+   
+const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault();
+    try {
+      const response = await api.post('/login', {
         username,
-        password
-      })
-      .then(() => {
-        alert("Realizado com sucesso");
-
-        navigate("/");
-      })
-      .catch(() => {
-        alert("Erro");
+        password,
       });
-
-  }
+      console.log(response.data);
+      navigate('/')
+    } catch (error) {
+      console.error('Erro de login', error);
+    }
+  };
   return (
     <div className="login-form-container">
-      <form onSubmit={login} className="login-form">
+      <form onSubmit={handleSubmit} className="login-form">
         <div className="input-group">
           <label>Username:</label>
           <input type="text" value={username} onChange={(e) => {setUsername(e.target.value);}} />
