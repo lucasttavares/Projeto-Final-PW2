@@ -1,6 +1,9 @@
 import React, { useState, FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import logoImg from "../../assets/images/InForme.svg";
+import Voltar from "../../assets/images/voltar.svg";
+import logoIFPB from "../../assets/images/logo-ifpb.png"
+
 
 import api from "../../services/api";
 import "./style.css";
@@ -29,6 +32,8 @@ function Login() {
   return (
     <div className="login-form-container">
       <form onSubmit={handleSubmit} className="login-form">
+        <img src={logoImg} alt="logoinforme" className="logo"/>
+        <h2> Destinado aos administradores do campus</h2>
         <div className="input-group">
           <label>Username:</label>
           <input
@@ -51,6 +56,7 @@ function Login() {
         </div>
         <button type="submit">Entrar</button>
       </form>
+      <img src={logoIFPB} alt="Logo IFPB" className="logoIF" />
     </div>
   );
 }

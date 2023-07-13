@@ -9,6 +9,22 @@
     height: 100vh;
     background-color: #f2f2f2;
   }
+
+.logo{
+  width: 210px;
+  height: 80px;
+}
+
+h2{
+  text-align: center;
+  color: #9CADB6;
+  width: 20rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
   
   .login-form {
     padding: 20px;
