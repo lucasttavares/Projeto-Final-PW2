@@ -12,16 +12,19 @@ function Login() {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    try {
-      const response = await api.post("/login", {
+    const response = await api
+      .post("/login", {
         username,
         password,
+      })
+      .then((resp) => {
+        console.log(resp.data);
+        localStorage.setItem("token", resp.data.Token);
+        navigate("/list");
+      })
+      .catch((err) => {
+        alert(err.response.data.Mensagem);
       });
-      console.log(response.data);
-      navigate("/list");
-    } catch (error) {
-      alert("Credenciais inválidas");
-    }
   };
   return (
     <div className="login-form-container">
