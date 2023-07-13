@@ -11,8 +11,7 @@ function Home() {
       <div id="page-home-content" className="container">
         <div className="logo-container">
           <img src={logoImg} alt="Logo InForme" />
-          <h2>Plataforma de </h2>
-          <h2>ouvidoria do IFPB</h2>
+          <h2>Plataforma de ouvidoria do IFPB </h2>
         </div>
 
         <img src={homeImg} alt="Home" className="home-image" />
